@@ -1,0 +1,252 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('https://images.unsplash.com/photo-1441906363162-903afd0d3d52?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a2458ced202df7b46c8533c4367e9dbe&auto=format&fit=crop&w=750&q=80'); /* Background pattern from unsplash.com*/
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: white;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #06356b;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #193bd3;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck.card.selected{
+  pointer-events:none;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
+
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+  text-align: center;
+  width: 345px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.score-panel .stars {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin: 0 5px 0 0;
+  color: white;
+}
+
+.score-panel .stars li {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin: 0 5px 0 0;
+  color: white;
+}
+
+.score-panel .stars li {
+  list-style: none;
+  display: inline-block;
+}
+
+.timer {
+  margin: center;
+  padding: 2.5em;
+  color: white;
+}
+
+.score-panel .restart {
+  float: right;
+  cursor: pointer;
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
+.modal-box {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  top: 20px;
+  left: 50px;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.438);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+  border-bottom: 2px solid #888;
+}
+
+.close {
+  font-weight: bold;
+  font-size: 30px;
+  color: #cccccc;
+  float: right;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  justify-content: center;
+  width: 60%;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  background: linear-gradient(160deg, #02ccba 0%, #174fa8 100%);
+  transform: translate(-50%, -70%);
+  padding: 10px;
+  border-bottom: 1px solid #888;
+  font-style: bold;
+  margin: 30 30 30;
+  color: white;
+}
+
+#modal-stars {
+  list-style: none;
+  display: inline-flex;
+  color: white;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.playAgain {
+  width: 80px;
+  height: 50px;
+  margin: 5px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 1.5rem;
+  background: white;
+}
+
+.playAgain:hover {
+  transform: scale(1.1);
+  background: #c0c3c4;
+}
+
+/*
+ Screen responsiveness
+ */
+
+@media screen and (max-width: 800px) {
+  .deck {
+    width: 400px;
+    min-height: 400px;
+    padding: 22px;
+  }
+  .deck .card {
+    height: 75px;
+    width: 75px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .deck {
+    width: 250px;
+    min-height: 250px;
+    padding: 15px;
+  }
+  .deck .card {
+    height: 50px;
+    width: 50px;
+  }
+  .score-panel {
+    text-align: left;
+    width: 150px;
+    margin-bottom: 10px;
+  }
+}
+
+  
+  
+  
